@@ -1,0 +1,3 @@
+CREATE DATABASE garagedraw;
+CREATE USER bianca with ENCRYPTED PASSWORD 'b1@nc@';
+GRANT ALL PRIVILEGES ON DATABASE garagedraw TO bianca;
