@@ -8,16 +8,18 @@ app = FastAPI()
 
 print("Started!")
 
+
 @app.get("/ping")
 async def pong():
     return {
         "pong": datetime.now().time()
     }
 
+
 @app.get("/users")
 async def loadUsers():
     return {
-        "users": ShowUsers()
+        "users": LoadUsers()
     }
-        
+
 print("Stoped")
