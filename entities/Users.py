@@ -20,10 +20,9 @@ class UserStorage:
     def save(cursor, user):
         try:
             query = """ INSERT INTO Users (UserID, Name, Email, Spaces) VALUES (%s, %s, %s, %d)"""
-            data = (self.Id, self.Name, self.Email, self.Spaces)
+            data = (user.Id, user.Name, user.Email, user.Spaces)
             cursor.execute(query, data)
 
-            connection.commit()
             count = cursor.rowcount
             print("Records affected on Users.Save: %d" % (count))
 
