@@ -12,9 +12,7 @@ services:
   adminer:
     image: adminer
     restart: always
+    depends_on:
+      - db
     ports:
       - 8088:8088
-
-  api:
-    image: python
-    restart: always

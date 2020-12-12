@@ -5,12 +5,14 @@ class User:
     Name = ""
     Email = ""
     Spaces = 1
+    Targets = []
 
-    def __init__(self, id, name, email, spaces):
+    def __init__(self, id, name, email, spaces, targets):
         self.Id = id
         self.Name = name
         self.Email = email
         self.Sapces = spaces
+        self.Targets = targets
 
 class UserStorage:
     def save(cursor, user):
@@ -35,7 +37,8 @@ SELECT
     UserID,
     Name,
     Email,
-    Spaces
+    Spaces,
+    Targets
 FROM 
     USERS
 ORDER BY
@@ -45,7 +48,7 @@ ORDER BY
             data = cursor.fetchall()
 
             for row in data:
-                ret.append(User(row[0], row[1], row[2], row[3]))        
+                ret.append(User(row[0], row[1], row[2], row[3], row[4]))        
 
             return ret
         except (Exception, psycopg2.Error) as error :

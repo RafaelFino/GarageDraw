@@ -6,6 +6,8 @@ from service.Loader import *
 
 app = FastAPI()
 
+print("Started!")
+
 @app.get("/ping")
 async def pong():
     return {
@@ -18,4 +20,4 @@ async def loadUsers():
         "users": ShowUsers()
     }
         
-    
+print("Stoped")
